@@ -6,7 +6,7 @@ const GetLog = () => {
 const [ logs, setLogs ] = useState([])
 
 useEffect(() => {
-    fetch("http://localhost:3000/get")
+    fetch(process.env.REACT_APP_API_ENDPOINT)
     .then(res => res.json())
     .then(data => setLogs(data))
     .catch(err => console.error(err))

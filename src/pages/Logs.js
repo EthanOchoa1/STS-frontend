@@ -11,7 +11,7 @@ export const Logs = () => {
 
 
 
-    fetch("http://localhost:3000/logs", {
+    fetch((`${process.env.REACT_APP_API_ENDPOINT}${Logs}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const Logs = () => {
     })
       .then((res) => res.json())
       .then((data) => setForm(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)))
   };
 
   const handleForm = (e) => {
@@ -28,7 +28,7 @@ export const Logs = () => {
   };
 
   return (
-    <div>
+    <div className="add-logs">
       <h1>Add a Log</h1>
       <form className="add-log">
         <label>What were you feeling? :</label>
